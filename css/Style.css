@@ -1,0 +1,38 @@
+body,html, #home, #homeLogin{
+    height: 100%;
+    background-color: gray;
+    overflow-x: hidden;
+    
+    
+   
+}
+#home, #homeLogin{
+    border: 1px solid red;
+}
+.capa{
+    text-align: center;
+}
+label {
+    text-align: left;
+}
+#telaLogin{
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 1px 5px 30px rgb(195, 195, 195);
+}
+#cadastro{
+    box-shadow: 1px 5px 30px rgb(195, 195, 195);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@media (max-width: 575.98px) { 
+    .btn-block{
+        margin-top:15px;
+    }
+
+ }
