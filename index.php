@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -93,4 +96,28 @@
 
     }
 
+   
+
+
+
+if(isset($_GET['senha'])){
+    
+    ?>
+    <script language="javascript" type="text/javascript">
+        document.getElementById('senha').className= 'form-control' +  ' ' + 'is-invalid';
+        document.getElementById('login').className= 'form-control' +  ' ' + 'is-valid'
+    
+    </script>
+    <?php
+}
+if(isset($_GET['both'])){ ?>
+    <script language="javascript" type="text/javascript">
+        document.getElementById('senha').className= 'form-control' +  ' ' + 'is-invalid';
+        document.getElementById('login').className= 'form-control' +  ' ' + 'is-invalid';
+    
+    </script>
+    <?php
+}
+
 ?>
+

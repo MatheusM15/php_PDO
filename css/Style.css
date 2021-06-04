@@ -1,7 +1,7 @@
 body,html, #home, #homeLogin{
     height: 100%;
-    background-color: gray;
     overflow-x: hidden;
+     
     
     
    
@@ -35,4 +35,9 @@ label {
         margin-top:15px;
     }
 
+ }
+
+ .divisor{
+     width: 1px;
+     color: white;
  }

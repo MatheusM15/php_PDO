@@ -4,6 +4,7 @@ $_SESSION['admin'] = false;
 $_SESSION['logado'] = false;
 
 $nome = $_POST['nome'];
+$senha = $_POST['senha'];
 
 $_SESSION['user'] =  '';
 $adm = 1;
@@ -35,8 +36,15 @@ if($stmt->rowCount() > 0){
     
 
 }else{
-    $_SESSION['logado'] = false;
-    header('location: index.php?error='.$nome);
+    if(empty($senha) && empty($nome)){
+        header('location: index.php?error='.$nome.'&both=true');
+    }
+    elseif(empty($senha)){
+        header('location: index.php?error='.$nome.'&senha=error');
+    }else{
+        $_SESSION['logado'] = false;
+        header('location: index.php?error='.$nome);
+    }
 }
 
 
