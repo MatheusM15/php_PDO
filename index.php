@@ -14,29 +14,24 @@
         function cadastrar(){
             window.location.href = 'cadastramento.php'
         }
-        function enviar(){
-            let email = document.getElementById('login');
-            let senha = document.getElementById('senha');
-            if(email.value){
-                alert('certo')
-                email.className = "form-control" + " " + "is-valid";
-                return;
-            }
-            alert('error');
-            email.className = "form-control"+" " + "is-invalid";
-        }
+        
+       
     </script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      
+
+  
+  <div  class="mt-3 ml-auto w-25  alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Alerta!!</strong> Login não realizado.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
+                    
     <div class="card w-25" id="telaLogin">
         <div class="card-header text-center bg-warning">
             <img src="imagens/8964998576cfac440b3a14df748fc670.png" width="100" height="100">
@@ -118,6 +113,7 @@ if(isset($_GET['both'])){ ?>
     </script>
     <?php
 }
+
 
 ?>
 

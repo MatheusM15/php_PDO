@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -13,8 +14,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Alerta!!</strong> ja exister um usuario com esse nome.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
   
-        <div class="mt-xl-5 card w-75" id="cadastro">
+
+  <div class="mt-xl-5 card w-75" id="cadastro">
             <div class="card-header text-center bg-warning">
                 <img src="imagens/8964998576cfac440b3a14df748fc670.png" width="100" height="100">
             </div>
@@ -24,8 +36,8 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="nome">Nome:</label>
-                                <input value="" type="nome" id="nome" placeholder="nome" name="nome" class="form-control">
-                                <div class="invalid-feedback">
+                                <input value="<?php if(isset($_GET['nome'])) echo $_GET['nome']?>" type="nome" id="nome" placeholder="nome" name="nome" class="form-control">
+                                <div  class="invalid-feedback">
                                     O valor não foi inserido
                                 </div>
                             </div>
@@ -33,8 +45,8 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="cnome">Confirmar Nome:</label>
-                                <input value="" id="cnome" placeholder="Confirmar Nome:" class="form-control">
-                                <div class="invalid-feedback">
+                                <input value="" id="cnome" name="cnome" placeholder="Confirmar Nome:" class="form-control">
+                                <div id="cmpnome" class="invalid-feedback">
                                     O valor não foi inserido
                                 </div>
                             </div>
@@ -51,8 +63,8 @@
                     <div class="col-6">
                         <div class="form-group">
                             <label for="csenha">Confirmar Senha:</label>
-                            <input type="password" class="form-control" id="csenha" value="" placeholder="Confirmar Senha">
-                            <div class="invalid-feedback">
+                            <input type="password" class="form-control" name="csenha" id="csenha" value="" placeholder="Confirmar Senha">
+                            <div id="cmpsenha" class="invalid-feedback">
                                 O valor não foi inserido
                             </div>
                         </div>
@@ -68,10 +80,6 @@
             </div>
         </div> 
    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -83,7 +91,7 @@
 
 
 <?php
-    if(isset($_GET['error'])){
+    if(isset($_GET['error']) && strcmp($_GET['error'],'both') == 0){
        ?>
         <script language="javascript" type="text/javascript">
             document.getElementById('nome').className = 'form-control' + ' ' + 'is-invalid';
@@ -94,23 +102,83 @@
         </script>
     <?php
     }
-    if(isset($_GET['nome'])){
-
-        ?>
-          <script language="javascript" type="text/javascript">
-            document.getElementById('nome').className = 'form-control' + ' ' + 'is-invalid';
-            document.getElementById('cnome').className = 'form-control' + ' ' + 'is-invalid';
-            
-            
-   
-        </script>
-    <?php
-    }
-    if(isset($_GET['senha'])){
+    if(isset($_GET['cmperror']) && strcmp($_GET['cmperror'],'both') == 0){
         ?>
          <script language="javascript" type="text/javascript">
-            document.getElementById('senha').className = 'form-control' + ' ' + 'is-invalid';
+            
+            document.getElementById('cnome').className = 'form-control' + ' ' + 'is-invalid';
+            document.getElementById('cmpnome').innerHTML = 'O nome não e igual';
             document.getElementById('csenha').className = 'form-control' + ' ' + 'is-invalid';
-        </script>
-        <?php
-    }
+            document.getElementById('cmpsenha').innerHTML = 'A senha não e igual'
+
+         </script>
+     <?php
+     }
+     if(isset($_GET['cmperror']) && strcmp($_GET['cmperror'],'senha') == 0){
+        ?>
+         <script language="javascript" type="text/javascript">
+            
+            
+            document.getElementById('csenha').className = 'form-control' + ' ' + 'is-invalid';
+            document.getElementById('cmpsenha').innerHTML = 'A senha não e igual'
+
+         </script>
+     <?php
+     }
+     if(isset($_GET['cmperror']) && strcmp($_GET['cmperror'],'nome') == 0){
+        ?>
+         <script language="javascript" type="text/javascript">
+            
+            document.getElementById('cnome').className = 'form-control' + ' ' + 'is-invalid';
+            document.getElementById('cmpnome').innerHTML = 'O nome não e igual';
+            
+
+         </script>
+     <?php
+     }
+     if(isset($_GET['error']) && strcmp($_GET['error'],'senha') == 0){
+        ?>
+         <script language="javascript" type="text/javascript">
+            
+            
+            document.getElementById('csenha').className = 'form-control' + ' ' + 'is-invalid';
+            document.getElementById('senha').className = 'form-control' + ' ' + 'is-invalid';
+            
+
+         </script>
+     <?php
+     }
+     if(isset($_GET['error']) && strcmp($_GET['error'],'nome') == 0){
+        ?>
+         <script language="javascript" type="text/javascript">
+            
+            
+            document.getElementById('cnome').className = 'form-control' + ' ' + 'is-invalid';
+            document.getElementById('nome').className = 'form-control' + ' ' + 'is-invalid';
+            
+
+         </script>
+     <?php
+     }
+    
+    ?>
+
+<?php
+   if(isset($_GET['same']) && $_GET['same'] == 1){
+    ?>
+    <script language="javascript" type="text/javascript">
+        $('.alert').alert();
+    </script>
+    <?php
+}else{?>
+    <script language="javascript" type="text/javascript">
+        $('.alert').alert('close');
+    </script>
+    <?php
+
+
+}
+?>
+
+    
+    
