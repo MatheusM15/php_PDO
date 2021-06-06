@@ -18,13 +18,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <?php
+   if(isset($_GET['same']) && $_GET['same'] == 1){
+    ?>
+    <html>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Alerta!!</strong> ja exister um usuario com esse nome.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-  
+    </html>
+    <script language="javascript" type="text/javascript">
+        $('.alert').alert();
+    </script>
+    <?php
+    }
+
+?>
 
   <div class="mt-xl-5 card w-75" id="cadastro">
             <div class="card-header text-center bg-warning">
@@ -163,22 +174,6 @@
     
     ?>
 
-<?php
-   if(isset($_GET['same']) && $_GET['same'] == 1){
-    ?>
-    <script language="javascript" type="text/javascript">
-        $('.alert').alert();
-    </script>
-    <?php
-}else{?>
-    <script language="javascript" type="text/javascript">
-        $('.alert').alert('close');
-    </script>
-    <?php
-
-
-}
-?>
 
     
     

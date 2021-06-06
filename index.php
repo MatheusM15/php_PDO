@@ -1,6 +1,3 @@
-
-
-
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -22,15 +19,47 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      
-
-  
-  <div  class="mt-3 ml-auto w-25  alert alert-danger alert-dismissible fade show" role="alert">
+  <?php
+    if(isset($_GET['error']) && !empty($_GET['error'])){
+        ?>
+        <html>
+        <div  class="mt-3 ml-auto w-25  alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>Alerta!!</strong> Login não realizado.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
+
+        </html>
+        <script language="javascript" type="text/javascript">
+            $('.alert').alert();
+           
+        </script>
+        <?php
+    }
+    if(isset($_GET['cad'])){
+        ?>
+        <html>
+        <div  class="mt-3 ml-auto w-25  alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Alerta!!</strong> Cadastro realizado com sucessor.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+
+        </html>
+        <script language="javascript" type="text/javascript">
+            $('.alert').alert();
+           
+        </script>
+        <?php
+    }
+    ?>
+    
+      
+
+  
+ 
                     
     <div class="card w-25" id="telaLogin">
         <div class="card-header text-center bg-warning">
@@ -75,21 +104,6 @@
 
 
 <?php
-    if(isset($_GET['error'])){
-        ?>
-        <script language="javascript" type="text/javascript">
-            $('.alert').alert();
-        </script>
-        <?php
-    }else{
-
-        ?>
-        <script language="javascript" type="text/javascript">
-            $('.alert').alert('close');
-        </script>
-        <?php
-
-    }
 
    
 

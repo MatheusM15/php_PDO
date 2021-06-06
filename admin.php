@@ -36,7 +36,7 @@ include("isadmin.php");
               <li class="nav-item active"style="margin-top: 7px;"><a href="#" class="nav-link">Home</a></li>
               <li class="nav-item" style="margin-top: 7px;"><a href="users_admin.php" class="nav-link">Usuarios</a></li>
               <li class="nav-item" style="width: 1px;background-color: white; margin: 8px 10px;"></li>
-              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?= $_SESSION['user'] ?><img style="margin: 0px ;" width="40" height="40" src="imagens/8964998576cfac440b3a14df748fc670.png">
+              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?= $_SESSION['user'] ?><img style="margin-left: 5px ;" width="40" height="40" src="imagens/8964998576cfac440b3a14df748fc670.png">
                   <div class="dropdown-menu bg-info" aria-labelledby="usertoggle">
 
                     <a href="#" class="dropdown-item">Teste</a>
